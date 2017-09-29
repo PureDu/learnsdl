@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "event", "event\event.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "keypress", "keypress\keypress.vcxproj", "{2A062153-9588-41ED-84AA-3808EF6CDDBD}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Optimized Surface Loading and Soft Stretching", "Optimized Surface Loading and Soft Stretching\Optimized Surface Loading and Soft Stretching.vcxproj", "{399FEDFE-22B3-4DB2-9A32-B3CDDA4E9276}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,6 +53,14 @@ Global
 		{2A062153-9588-41ED-84AA-3808EF6CDDBD}.Release|x64.Build.0 = Release|x64
 		{2A062153-9588-41ED-84AA-3808EF6CDDBD}.Release|x86.ActiveCfg = Release|Win32
 		{2A062153-9588-41ED-84AA-3808EF6CDDBD}.Release|x86.Build.0 = Release|Win32
+		{399FEDFE-22B3-4DB2-9A32-B3CDDA4E9276}.Debug|x64.ActiveCfg = Debug|x64
+		{399FEDFE-22B3-4DB2-9A32-B3CDDA4E9276}.Debug|x64.Build.0 = Debug|x64
+		{399FEDFE-22B3-4DB2-9A32-B3CDDA4E9276}.Debug|x86.ActiveCfg = Debug|Win32
+		{399FEDFE-22B3-4DB2-9A32-B3CDDA4E9276}.Debug|x86.Build.0 = Debug|Win32
+		{399FEDFE-22B3-4DB2-9A32-B3CDDA4E9276}.Release|x64.ActiveCfg = Release|x64
+		{399FEDFE-22B3-4DB2-9A32-B3CDDA4E9276}.Release|x64.Build.0 = Release|x64
+		{399FEDFE-22B3-4DB2-9A32-B3CDDA4E9276}.Release|x86.ActiveCfg = Release|Win32
+		{399FEDFE-22B3-4DB2-9A32-B3CDDA4E9276}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
