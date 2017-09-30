@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{7EF80599-F4C1-4730-9C24-664D12F26D4D}</ProjectGuid>
+    <ProjectGuid>{5A54202B-581A-4530-9A7B-95AA2108E30F}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>ColorKeying</RootNamespace>
+    <RootNamespace>ClipRenderingandSpriteSheets</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -149,8 +149,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="background.png" />
-    <Image Include="foo.png" />
+    <Image Include="dots.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -23,6 +23,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "The Viewport", "The Viewpor
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Color Keying", "Color Keying\Color Keying.vcxproj", "{7EF80599-F4C1-4730-9C24-664D12F26D4D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Clip Rendering and Sprite Sheets", "Clip Rendering and Sprite Sheets\Clip Rendering and Sprite Sheets.vcxproj", "{5A54202B-581A-4530-9A7B-95AA2108E30F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -111,6 +113,14 @@ Global
 		{7EF80599-F4C1-4730-9C24-664D12F26D4D}.Release|x64.Build.0 = Release|x64
 		{7EF80599-F4C1-4730-9C24-664D12F26D4D}.Release|x86.ActiveCfg = Release|Win32
 		{7EF80599-F4C1-4730-9C24-664D12F26D4D}.Release|x86.Build.0 = Release|Win32
+		{5A54202B-581A-4530-9A7B-95AA2108E30F}.Debug|x64.ActiveCfg = Debug|x64
+		{5A54202B-581A-4530-9A7B-95AA2108E30F}.Debug|x64.Build.0 = Debug|x64
+		{5A54202B-581A-4530-9A7B-95AA2108E30F}.Debug|x86.ActiveCfg = Debug|Win32
+		{5A54202B-581A-4530-9A7B-95AA2108E30F}.Debug|x86.Build.0 = Debug|Win32
+		{5A54202B-581A-4530-9A7B-95AA2108E30F}.Release|x64.ActiveCfg = Release|x64
+		{5A54202B-581A-4530-9A7B-95AA2108E30F}.Release|x64.Build.0 = Release|x64
+		{5A54202B-581A-4530-9A7B-95AA2108E30F}.Release|x86.ActiveCfg = Release|Win32
+		{5A54202B-581A-4530-9A7B-95AA2108E30F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

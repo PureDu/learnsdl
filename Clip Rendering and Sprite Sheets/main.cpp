@@ -8,7 +8,6 @@
 
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
-const int DETAL = 33;
 
 
 
@@ -21,7 +20,7 @@ public:
 	bool loadFromFile(std::string path);
 	void free();
 
-	void render(int x, int y);
+	void render(int x, int y, SDL_Rect* clip = nullptr);
 
 	int getWidth() const;
 	int getHeight() const;
@@ -40,8 +39,8 @@ void close();
 SDL_Window* gWindow = nullptr;
 SDL_Renderer* gRenderer = nullptr;
 
-LTexture gFooTexture;
-LTexture gBackgroundTexture;
+SDL_Rect gSpriteClips[4];
+LTexture gSpriteSheetTexture;
 
 
 
@@ -55,12 +54,7 @@ int main(int argc, char* argv[]) {
 			printf("Failed to load media!\n");
 		} else {
 			bool quit = false;
-
 			SDL_Event e;
-
-			int x = 0;
-
-			Uint32 nextUpdateTime = 0;
 
 			while (!quit) {
 
@@ -70,20 +64,18 @@ int main(int argc, char* argv[]) {
 					}
 				}
 
-				Uint32 nowTime = SDL_GetTicks();
-				if (nowTime >= nextUpdateTime) {
-					SDL_SetRenderDrawColor(gRenderer, 0xff, 0xff, 0xff, 0xff);
-					SDL_RenderClear(gRenderer);
+				SDL_SetRenderDrawColor(gRenderer, 0xff, 0xff, 0xff, 0xff);
+				SDL_RenderClear(gRenderer);
 
-					gBackgroundTexture.render(0, 0);
+				gSpriteSheetTexture.render(0, 0, &gSpriteClips[0]);
 
-					x = (x + 1) % SCREEN_WIDTH;
-					gFooTexture.render(x, 190);
+				gSpriteSheetTexture.render(SCREEN_WIDTH - gSpriteClips[1].w, 0, &gSpriteClips[1]);
 
-					SDL_RenderPresent(gRenderer);
+				gSpriteSheetTexture.render(0, SCREEN_HEIGHT - gSpriteClips[2].h, &gSpriteClips[2]);
 
-					nextUpdateTime = nowTime + DETAL;
-				}
+				gSpriteSheetTexture.render(SCREEN_WIDTH - gSpriteClips[3].w, SCREEN_HEIGHT - gSpriteClips[3].h, &gSpriteClips[3]);
+
+				SDL_RenderPresent(gRenderer);
 			}
 		}
 	}
@@ -129,19 +121,37 @@ bool init() {
 	return success;
 }
 
+
+
+
 bool loadMedia() {
 	bool success = true;
 
-	if (!gFooTexture.loadFromFile("foo.png")) {
-		printf("Failed to load Foo' texture image!\n");
+	if (!gSpriteSheetTexture.loadFromFile("dots.png")) {
+		printf("Failed to load sprite sheet texture!\n");
 		success = false;
-	}
+	} else {
+		gSpriteClips[0].x = 0;
+		gSpriteClips[0].y = 0;
+		gSpriteClips[0].w = 100;
+		gSpriteClips[0].h = 100;
 
-	if (!gBackgroundTexture.loadFromFile("background.png")) {
-		printf("Failed to load background texture image!\n");
-		success = false;
-	}
+		gSpriteClips[1].x = 100;
+		gSpriteClips[1].y = 0;
+		gSpriteClips[1].w = 100;
+		gSpriteClips[1].h = 100;
 
+		gSpriteClips[2].x = 0;
+		gSpriteClips[2].y = 100;
+		gSpriteClips[2].w = 100;
+		gSpriteClips[2].h = 100;
+
+		gSpriteClips[3].x = 100;
+		gSpriteClips[3].y = 100;
+		gSpriteClips[3].w = 100;
+		gSpriteClips[3].h = 100;
+
+	}
 	return success;
 }
 
@@ -149,8 +159,8 @@ bool loadMedia() {
 
 void close() {
 
-	gFooTexture.free();
-	gBackgroundTexture.free();
+	gSpriteSheetTexture.free();
+
 
 	SDL_DestroyRenderer(gRenderer);
 	SDL_DestroyWindow(gWindow);
@@ -210,9 +220,17 @@ void LTexture::free() {
 	}
 }
 
-void LTexture::render(int x, int y) {
+void LTexture::render(int x, int y, SDL_Rect* clip /*= nullptr*/) {
+
+
 	SDL_Rect renderQuad = { x,y,mWidth,mHeight };
-	SDL_RenderCopy(gRenderer, mTexture, nullptr, &renderQuad);
+
+
+	if (clip != nullptr) {
+		renderQuad.w = clip->w;
+		renderQuad.h = clip->h;
+	}
+	SDL_RenderCopy(gRenderer, mTexture, clip, &renderQuad);
 }
 
 int LTexture::getWidth() const {

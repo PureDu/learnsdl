@@ -20,10 +20,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="background.png">
-      <Filter>资源文件</Filter>
-    </Image>
-    <Image Include="foo.png">
+    <Image Include="dots.png">
       <Filter>资源文件</Filter>
     </Image>
   </ItemGroup>
